@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Sistemas Operacionais</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="#monotarefa">Monotarefa</a></li>
+            <li><a href="#multitarefa">Multitarefa</a></li>
+            <li><a href="#multiprocessadores">Multiprocessadores</a></li>
+        </ul>
+    </nav>
+
+ <div class="container">
+        <section id="monotarefa" class="system">
+            <h2>Sistemas Monoprogramáveis/Monotarefa</h2>
+            <p>
+                Os primeiros sistemas operacionais que surgiram eram voltados para a execução de um único programa, quando qualquer outra aplicação queria ser executada, ela ficava na fila de espera aguardando o término do programa corrente. Eles surgiram na década de 1960, mas foi muito utilizado na década de 1970, quando os computadores pessoais e estações de trabalho foram introduzidos.
+            </p>
+
+            <p>
+                Neste tipo de sistema, enquanto um programa aguarda por um evento, como a digitação de um dado, o processador permanece ocioso, sem realizar qualquer tipo de processamento. A memória é subutilizada caso o programa não a preencha totalmente, e os periféricos, discos e impressoras, estão dedicadas a um único usuário, nem sempre utilizados de forma integral.
+            </p>
+
+            <button onclick="executarProgramaMonotarefa(1)">Iniciar Programa 1</button>
+            <button onclick="executarProgramaMonotarefa(2)">Iniciar Programa 2</button>
+            <button onclick="cancelarProgramaMonotarefa()">Cancelar</button>
+            <p id="statusMonotarefa"></p>
+            <p id="tempoDecorridoMonotarefa"></p>
+            <div id="progressBarMonotarefa" style="width: 100%; height: 30px; background-color: #f0f0f0; border-radius: 5px; margin-top: 20px;">
+                <div id="progressMonotarefa" style="width: 0%; height: 100%; background: linear-gradient(to right, #d9a327, #b8841d);; border-radius: 5px;"></div>
+            </div>
+        </section>
+        
+        <section id="multitarefa" class="system">
+            <h2>Sistemas Multiprogramáveis/Multitarefa</h2>
+            <p>
+                Os sistemas multiprogramáveis ou multitarefa são uma evolução dos monoprogramáveis, neste tipo de sistema, os recursos computacionais são compartilhados entre diversos usuários e aplicações.
+            </p>
+            <p>
+                Por exemplo, enquanto um programa espera por uma operação de leitura ou gravação em disco, outros programas podem estar sendo processados neste mesmo intervalo de tempo, neste tipo de situação, pode-se observar o compartilhamento da memória e do processador. O sistema operacional se preocupa em gerenciar o acesso concorrente aos seus diversos recursos, como memória, processador e periféricos, de forma ordenada e protegida, entre os diversos programas.
+            </p>
+
+            <button onclick="executarProgramas()">Executar Programas</button>
+            <div id="output"></div>
+            <div class="progress-container">
+                <p id="program1">Programa 1</p>
+                <div class="progress-bar" id="progressBar1"></div>
+            </div>
+            <div class="progress-container">
+                <p id="program2">Programa 2</p>
+                <div class="progress-bar" id="progressBar2"></div>
+            </div>
+            <div class="progress-container">
+                <p id="program3">Programa 3</p>
+                <div class="progress-bar" id="progressBar3"></div>
+            </div>
+        </section>
+        
+        <section id="multiprocessadores" class="system">
+            <h2>Sistemas com Múltiplos Processadores</h2>
+            <p>
+                Os sistemas com múltiplos processadores caracterizam-se por possuírem duas ou mais CPUs que são interligadas e trabalham em conjunto. Neste tipo de situação, há duas possibilidades:
+            </p>
+            <ul>
+                <li>Vários programas podem ser executados ao mesmo tempo;</li>
+                <li>Um mesmo programa pode ser subdividido em diversas partes para serem executadas simultaneamente em mais de um processador.</li>
+            </ul>
+            <p>
+                Contudo, os múltiplos processadores possibilitaram a criação de sistemas computacionais voltados para processamento científico, por exemplo, no desenvolvimento aeroespacial, prospecção de petróleo, simulações, processamento de imagens e Computer Aided-Design (CAD).
+            </p>
+            <p>
+                Este tipo de sistema possui três tipos de vantagens:
+            </p>
+            <ul>
+                <li>Escalabilidade: Capacidade de ampliar o poder computacional do sistema apenas adicionando novos processadores.</li>
+                <li>Disponibilidade: É a capacidade de manter o sistema em operação mesmo em casos de falha.</li>
+                <li>Balanceamento de carga: É a possibilidade de distribuir o processamento entre os vários processadores a partir da carga de trabalho de cada processador, melhorando, assim, o desempenho do sistema como um todo.</li>
+            </ul>
+
+            <button onclick="iniciarExecucao()">Iniciar Execução</button>
+            <button onclick="interromperExecucao()">Interromper Execução</button>
+            <button onclick="reiniciarSistema()">Reiniciar Sistema</button>
+
+            <div id="outputMultiprocessadores"></div>
+
+            <div id="programas">
+                <div id="programas">
+                    <div class="programa">
+                        <h3>Programa 1</h3>
+                        <div class="progress-bar-container">
+                            <div id="progresso1" class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="programa">
+                        <h3>Programa 2</h3>
+                        <div class="progress-bar-container">
+                            <div id="progresso2" class="progress-bar"></div>
+                        </div>
+                    </div>
+                    <div class="programa">
+                        <h3>Programa 3</h3>
+                        <div class="progress-bar-container">
+                            <div id="progresso3" class="progress-bar"></div>
+                        </div>
+                    </div>
+            </div>
+
+        </section>
+    </div>
+
+    <button onclick="topFunction()" id="scrollTopBtn" title="Voltar ao Topo">Topo</button>
+
+    <script src="main.js"></script>
+</body>
+</html>
